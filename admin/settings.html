@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings - Symphony Admin</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+    <div class="admin-container">
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <h2><i class="fas fa-gift"></i> Symphony Admin</h2>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li><a href="dashboard.html" class="nav-link"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+                    <li><a href="products.html" class="nav-link"><i class="fas fa-box"></i> Products</a></li>
+                    <li><a href="orders.html" class="nav-link"><i class="fas fa-shopping-cart"></i> Orders</a></li>
+                    <li><a href="content.html" class="nav-link"><i class="fas fa-file-alt"></i> Content</a></li>
+                    <li><a href="blog.html" class="nav-link"><i class="fas fa-blog"></i> Blog</a></li>
+                    <li><a href="banners.html" class="nav-link"><i class="fas fa-image"></i> Banners</a></li>
+                    <li><a href="testimonials.html" class="nav-link"><i class="fas fa-quote-left"></i> Testimonials</a></li>
+                    <li><a href="analytics.html" class="nav-link"><i class="fas fa-chart-bar"></i> Analytics</a></li>
+                    <li><a href="settings.html" class="nav-link active"><i class="fas fa-cog"></i> Settings</a></li>
+                </ul>
+            </nav>
+            <div class="sidebar-footer">
+                <button id="logoutBtn" class="logout-btn"><i class="fas fa-sign-out-alt"></i> Logout</button>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="header">
+                <div class="header-left">
+                    <button id="menuToggle" class="menu-toggle"><i class="fas fa-bars"></i></button>
+                    <h1>Settings</h1>
+                </div>
+                <div class="header-right">
+                    <div class="user-info">
+                        <span id="userName">Admin</span>
+                        <img src="https://via.placeholder.com/40x40/8B4789/FFFFFF?text=A" alt="Admin" class="user-avatar">
+                    </div>
+                </div>
+            </header>
+
+            <div class="page-content">
+                <div class="page-header">
+                    <h2>Store Settings</h2>
+                </div>
+
+                <form id="settingsForm">
+                    <div class="settings-grid">
+                        <div class="settings-card">
+                            <h3>General</h3>
+                            <div class="setting-group"><label>Store Name</label><input id="storeName" class="setting-input"></div>
+                            <div class="setting-group"><label>Store Email</label><input id="storeEmail" class="setting-input" type="email"></div>
+                            <div class="setting-group"><label>Store Phone</label><input id="storePhone" class="setting-input"></div>
+                            <div class="setting-group"><label>Store Address</label><textarea id="storeAddress" class="setting-input" rows="3"></textarea></div>
+                            <div class="setting-group"><label>Currency</label><select id="currency" class="setting-input"><option value="INR">INR</option><option value="USD">USD</option><option value="EUR">EUR</option></select></div>
+                            <div class="setting-group"><label><input id="enableNotifications" type="checkbox"> Enable Notifications</label></div>
+                            <div class="setting-group"><label><input id="enableMaintenance" type="checkbox"> Maintenance Mode</label></div>
+                        </div>
+
+                        <div class="settings-card">
+                            <h3>Payments</h3>
+                            <div class="setting-group"><label>Cash on Delivery</label><select id="cashOnDelivery" class="setting-input"><option value="enabled">Enabled</option><option value="disabled">Disabled</option></select></div>
+                            <div class="setting-group"><label>Online Payments</label><select id="onlinePayments" class="setting-input"><option value="enabled">Enabled</option><option value="disabled">Disabled</option></select></div>
+                            <div class="setting-group"><label>Gateway</label><select id="paymentGateway" class="setting-input"><option value="razorpay">Razorpay</option><option value="stripe">Stripe</option><option value="paypal">PayPal</option></select></div>
+                        </div>
+
+                        <div class="settings-card">
+                            <h3>Shipping & Tax</h3>
+                            <div class="setting-group"><label>Free Shipping Above</label><input id="freeShipping" class="setting-input" type="number"></div>
+                            <div class="setting-group"><label>Shipping Cost</label><input id="shippingCost" class="setting-input" type="number"></div>
+                            <div class="setting-group"><label>Express Shipping</label><input id="expressShippingCost" class="setting-input" type="number"></div>
+                            <div class="setting-group"><label>Tax Rate (%)</label><input id="taxRate" class="setting-input" type="number"></div>
+                            <div class="setting-group"><label><input id="taxIncluded" type="checkbox"> Tax Included</label></div>
+                        </div>
+
+                        <div class="settings-card">
+                            <h3>Security & Backup</h3>
+                            <div class="setting-group"><label>Session Timeout</label><input id="sessionTimeout" class="setting-input" type="number"></div>
+                            <div class="setting-group"><label><input id="twoFactorAuth" type="checkbox"> Two-Factor Auth</label></div>
+                            <div class="setting-group"><label><input id="forceLogout" type="checkbox"> Force Logout</label></div>
+                            <div class="setting-group"><label>Auto Backup</label><select id="autoBackup" class="setting-input"><option value="daily">Daily</option><option value="weekly">Weekly</option><option value="monthly">Monthly</option><option value="disabled">Disabled</option></select></div>
+                            <div class="setting-group"><label>Backup Retention (days)</label><input id="backupRetention" class="setting-input" type="number"></div>
+                        </div>
+                    </div>
+
+                    <div class="settings-actions">
+                        <button type="submit" class="btn btn-primary">Save Settings</button>
+                        <button type="button" id="resetSettingsBtn" class="btn btn-secondary">Reload</button>
+                    </div>
+                </form>
+            </div>
+        </main>
+    </div>
+
+    <script src="js/common.js"></script>
+    <script src="js/settings.js"></script>
+</body>
+</html>

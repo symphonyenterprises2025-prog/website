@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products - Symphony Admin</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+    <div class="admin-container">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <h2><i class="fas fa-gift"></i> Symphony Admin</h2>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li><a href="dashboard.html" class="nav-link"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+                    <li><a href="products.html" class="nav-link active"><i class="fas fa-box"></i> Products</a></li>
+                    <li><a href="orders.html" class="nav-link"><i class="fas fa-shopping-cart"></i> Orders</a></li>
+                    <li><a href="content.html" class="nav-link"><i class="fas fa-file-alt"></i> Content</a></li>
+                    <li><a href="blog.html" class="nav-link"><i class="fas fa-blog"></i> Blog</a></li>
+                    <li><a href="banners.html" class="nav-link"><i class="fas fa-image"></i> Banners</a></li>
+                    <li><a href="testimonials.html" class="nav-link"><i class="fas fa-quote-left"></i> Testimonials</a></li>
+                    <li><a href="analytics.html" class="nav-link"><i class="fas fa-chart-bar"></i> Analytics</a></li>
+                    <li><a href="settings.html" class="nav-link"><i class="fas fa-cog"></i> Settings</a></li>
+                </ul>
+            </div>
+            <div class="sidebar-footer">
+                <button id="logoutBtn" class="logout-btn"><i class="fas fa-sign-out-alt"></i> Logout</button>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Header -->
+            <header class="header">
+                <div class="header-left">
+                    <button id="menuToggle" class="menu-toggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <h1>Products Management</h1>
+                </div>
+                <div class="header-right">
+                    <div class="user-info">
+                        <span id="userName">Admin</span>
+                        <img src="https://via.placeholder.com/40x40/8B4789/FFFFFF?text=A" alt="Admin" class="user-avatar">
+                    </div>
+                </div>
+            </header>
+
+            <!-- Page Content -->
+            <div class="page-content">
+                <!-- Page Header -->
+                <div class="page-header">
+                    <h2>Products Management</h2>
+                    <button id="addProductBtn" class="btn btn-primary">
+                        <i class="fas fa-plus"></i> Add Product
+                    </button>
+                </div>
+
+                <!-- Filters -->
+                <div class="filters-bar">
+                    <input type="text" id="productSearch" placeholder="Search products..." class="search-input">
+                    <select id="categoryFilter" class="filter-select">
+                        <option value="">All Categories</option>
+                        <option value="Birthday">Birthday</option>
+                        <option value="Wedding">Wedding</option>
+                        <option value="Festival">Festival</option>
+                        <option value="Corporate">Corporate</option>
+                        <option value="Baby Shower">Baby Shower</option>
+                        <option value="Valentine">Valentine</option>
+                        <option value="Rakhi">Rakhi</option>
+                        <option value="Diwali">Diwali</option>
+                        <option value="Christmas">Christmas</option>
+                        <option value="Eid">Eid</option>
+                        <option value="Teacher's Day">Teacher's Day</option>
+                        <option value="Housewarming">Housewarming</option>
+                        <option value="General">General</option>
+                    </select>
+                    <select id="statusFilter" class="filter-select">
+                        <option value="">All Status</option>
+                        <option value="Active">Active</option>
+                        <option value="Inactive">Inactive</option>
+                        <option value="Out of Stock">Out of Stock</option>
+                    </select>
+                </div>
+
+                <!-- Products Table -->
+                <div class="table-container">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Image</th>
+                                <th>Name</th>
+                                <th>Category</th>
+                                <th>Price</th>
+                                <th>Stock</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="productsTable">
+                            <tr><td colspan="7">Loading...</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Pagination -->
+                <div class="pagination" id="productsPagination"></div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Product Modal -->
+    <div id="productModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="productModalTitle">Add Product</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="productForm">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="productName">Product Name *</label>
+                            <input type="text" id="productName" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="productCategory">Category *</label>
+                            <select id="productCategory" name="category" required>
+                                <option value="">Select Category</option>
+                                <option value="Birthday">Birthday</option>
+                                <option value="Wedding">Wedding</option>
+                                <option value="Festival">Festival</option>
+                                <option value="Corporate">Corporate</option>
+                                <option value="Baby Shower">Baby Shower</option>
+                                <option value="Valentine">Valentine</option>
+                                <option value="Rakhi">Rakhi</option>
+                                <option value="Diwali">Diwali</option>
+                                <option value="Christmas">Christmas</option>
+                                <option value="Eid">Eid</option>
+                                <option value="Teacher's Day">Teacher's Day</option>
+                                <option value="Housewarming">Housewarming</option>
+                                <option value="General">General</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="productPrice">Price *</label>
+                            <input type="number" id="productPrice" name="price" min="0" step="0.01" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="productStock">Stock *</label>
+                            <input type="number" id="productStock" name="stock" min="0" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="productOccasion">Occasion</label>
+                            <select id="productOccasion" name="occasion">
+                                <option value="">Select Occasion</option>
+                                <option value="All Occasions">All Occasions</option>
+                                <option value="Birthday">Birthday</option>
+                                <option value="Anniversary">Anniversary</option>
+                                <option value="Festival">Festival</option>
+                                <option value="Corporate">Corporate</option>
+                                <option value="Wedding">Wedding</option>
+                                <option value="Baby Shower">Baby Shower</option>
+                                <option value="Valentine's Day">Valentine's Day</option>
+                                <option value="Rakhi">Rakhi</option>
+                                <option value="Diwali">Diwali</option>
+                                <option value="Christmas">Christmas</option>
+                                <option value="Eid">Eid</option>
+                                <option value="Teacher's Day">Teacher's Day</option>
+                                <option value="Housewarming">Housewarming</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="productStatus">Status</label>
+                            <select id="productStatus" name="status">
+                                <option value="Active">Active</option>
+                                <option value="Inactive">Inactive</option>
+                                <option value="Out of Stock">Out of Stock</option>
+                            </select>
+                        </div>
+                        <div class="form-group full-width">
+                            <label for="productDescription">Description *</label>
+                            <textarea id="productDescription" name="description" rows="4" required></textarea>
+                        </div>
+                        <div class="form-group full-width">
+                            <label for="productTags">Tags (comma separated)</label>
+                            <input type="text" id="productTags" name="tags" placeholder="gift, premium, special">
+                        </div>
+                        <div class="form-group full-width">
+                            <label for="productImages">Product Images</label>
+                            <input type="file" id="productImages" name="images" multiple accept="image/*">
+                            <div id="imagePreview" class="image-preview"></div>
+                        </div>
+                        <div class="form-group full-width">
+                            <label>
+                                <input type="checkbox" id="productFeatured" name="featured">
+                                Featured Product
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">Save Product</button>
+                        <button type="button" class="btn btn-secondary modal-cancel">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/common.js"></script>
+    <script src="js/products.js"></script>
+</body>
+</html>

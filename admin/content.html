@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Content Management - Symphony Admin</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+    <div class="admin-container">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <h2><i class="fas fa-gift"></i> Symphony Admin</h2>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li><a href="dashboard.html" class="nav-link"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+                    <li><a href="products.html" class="nav-link"><i class="fas fa-box"></i> Products</a></li>
+                    <li><a href="orders.html" class="nav-link"><i class="fas fa-shopping-cart"></i> Orders</a></li>
+                    <li><a href="content.html" class="nav-link active"><i class="fas fa-file-alt"></i> Content</a></li>
+                    <li><a href="blog.html" class="nav-link"><i class="fas fa-blog"></i> Blog</a></li>
+                    <li><a href="banners.html" class="nav-link"><i class="fas fa-image"></i> Banners</a></li>
+                    <li><a href="testimonials.html" class="nav-link"><i class="fas fa-quote-left"></i> Testimonials</a></li>
+                    <li><a href="analytics.html" class="nav-link"><i class="fas fa-chart-bar"></i> Analytics</a></li>
+                    <li><a href="settings.html" class="nav-link"><i class="fas fa-cog"></i> Settings</a></li>
+                </ul>
+            </div>
+            <div class="sidebar-footer">
+                <button id="logoutBtn" class="logout-btn"><i class="fas fa-sign-out-alt"></i> Logout</button>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Header -->
+            <header class="header">
+                <div class="header-left">
+                    <button id="menuToggle" class="menu-toggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <h1>Content Management</h1>
+                </div>
+                <div class="header-right">
+                    <div class="user-info">
+                        <span id="userName">Admin</span>
+                        <img src="https://via.placeholder.com/40x40/8B4789/FFFFFF?text=A" alt="Admin" class="user-avatar">
+                    </div>
+                </div>
+            </header>
+
+            <!-- Page Content -->
+            <div class="page-content">
+                <!-- Page Header -->
+                <div class="page-header">
+                    <h2>Content Management</h2>
+                    <button id="addContentBtn" class="btn btn-primary">
+                        <i class="fas fa-plus"></i> Add Content
+                    </button>
+                </div>
+
+                <!-- Content Grid -->
+                <div class="content-grid">
+                    <!-- Pages Section -->
+                    <div class="content-card">
+                        <h3>Pages</h3>
+                        <div id="pagesList" class="content-list">
+                            <div class="content-item">
+                                <h4>About Page</h4>
+                                <p>Status: Published</p>
+                                <div class="action-buttons">
+                                    <button class="btn btn-sm btn-info">Edit</button>
+                                    <button class="btn btn-sm btn-danger">Delete</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Blog Posts Section -->
+                    <div class="content-card">
+                        <h3>Blog Posts</h3>
+                        <div id="blogPostsList" class="content-list">
+                            <div class="content-item">
+                                <h4>Welcome to Symphony Enterprises</h4>
+                                <p>Status: Published</p>
+                                <div class="action-buttons">
+                                    <button class="btn btn-sm btn-info">Edit</button>
+                                    <button class="btn btn-sm btn-danger">Delete</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Banners Section -->
+                    <div class="content-card">
+                        <h3>Banners</h3>
+                        <div id="bannersList" class="content-list">
+                            <div class="content-item">
+                                <h4>Festival Special Offer</h4>
+                                <p>Status: Published</p>
+                                <div class="action-buttons">
+                                    <button class="btn btn-sm btn-info">Edit</button>
+                                    <button class="btn btn-sm btn-danger">Delete</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonials Section -->
+                    <div class="content-card">
+                        <h3>Testimonials</h3>
+                        <div id="testimonialsList" class="content-list">
+                            <div class="content-item">
+                                <h4>Excellent Service</h4>
+                                <p>Rating: 5.0</p>
+                                <p>Customer: Rajesh Kumar</p>
+                                <div class="action-buttons">
+                                    <button class="btn btn-sm btn-info">Edit</button>
+                                    <button class="btn btn-sm btn-danger">Delete</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Content Modal -->
+    <div id="contentModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="contentModalTitle">Add Content</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="contentForm">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="contentType">Content Type *</label>
+                            <select id="contentType" name="type" required>
+                                <option value="">Select Type</option>
+                                <option value="page">Page</option>
+                                <option value="blog">Blog Post</option>
+                                <option value="banner">Banner</option>
+                                <option value="testimonial">Testimonial</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="contentTitle">Title *</label>
+                            <input type="text" id="contentTitle" name="title" required>
+                        </div>
+                        <div class="form-group full-width">
+                            <label for="contentDescription">Content *</label>
+                            <textarea id="contentDescription" name="content" rows="4" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="contentStatus">Status</label>
+                            <select id="contentStatus" name="status">
+                                <option value="Published">Published</option>
+                                <option value="Draft">Draft</option>
+                                <option value="Archived">Archived</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">Save Content</button>
+                        <button type="button" class="btn btn-secondary modal-cancel">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/common.js"></script>
+    <script src="js/content.js"></script>
+</body>
+</html>

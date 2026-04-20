@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Management - Symphony Admin</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+    <div class="admin-container">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <h2><i class="fas fa-gift"></i> Symphony Admin</h2>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li><a href="dashboard.html" class="nav-link"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+                    <li><a href="products.html" class="nav-link"><i class="fas fa-box"></i> Products</a></li>
+                    <li><a href="orders.html" class="nav-link"><i class="fas fa-shopping-cart"></i> Orders</a></li>
+                    <li><a href="content.html" class="nav-link"><i class="fas fa-file-alt"></i> Content</a></li>
+                    <li><a href="blog.html" class="nav-link active"><i class="fas fa-blog"></i> Blog</a></li>
+                    <li><a href="banners.html" class="nav-link"><i class="fas fa-image"></i> Banners</a></li>
+                    <li><a href="testimonials.html" class="nav-link"><i class="fas fa-quote-left"></i> Testimonials</a></li>
+                    <li><a href="analytics.html" class="nav-link"><i class="fas fa-chart-bar"></i> Analytics</a></li>
+                    <li><a href="settings.html" class="nav-link"><i class="fas fa-cog"></i> Settings</a></li>
+                </ul>
+            </div>
+            <div class="sidebar-footer">
+                <button id="logoutBtn" class="logout-btn"><i class="fas fa-sign-out-alt"></i> Logout</button>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Header -->
+            <header class="header">
+                <div class="header-left">
+                    <button id="menuToggle" class="menu-toggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <h1>Blog Management</h1>
+                </div>
+                <div class="header-right">
+                    <div class="user-info">
+                        <span id="userName">Admin</span>
+                        <img src="https://via.placeholder.com/40x40/8B4789/FFFFFF?text=A" alt="Admin" class="user-avatar">
+                    </div>
+                </div>
+            </header>
+
+            <!-- Page Content -->
+            <div class="page-content">
+                <!-- Page Header -->
+                <div class="page-header">
+                    <h2>Blog Management</h2>
+                    <button id="addBlogBtn" class="btn btn-primary">
+                        <i class="fas fa-plus"></i> New Blog Post
+                    </button>
+                </div>
+
+                <!-- Blog Posts Grid -->
+                <div class="blog-grid">
+                    <div class="blog-card">
+                        <div class="blog-image">
+                            <img src="https://via.placeholder.com/300x200/8B4789/FFFFFF?text=Blog" alt="Blog Post">
+                        </div>
+                        <div class="blog-content">
+                            <h3>Welcome to Symphony Enterprises</h3>
+                            <p class="blog-meta">Published on April 20, 2026</p>
+                            <p>Discover the perfect gifts for every occasion at Symphony Enterprises. We offer a wide range of premium gift items for birthdays, weddings, festivals, and special moments...</p>
+                            <div class="blog-excerpt">Read more about our latest collections and gift ideas...</div>
+                            <div class="blog-meta">
+                                <span class="blog-author">Admin</span>
+                                <span class="blog-date">April 20, 2026</span>
+                            </div>
+                            <div class="action-buttons">
+                                <button class="btn btn-sm btn-info">Edit</button>
+                                <button class="btn btn-sm btn-danger">Delete</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="blog-card">
+                        <div class="blog-image">
+                            <img src="https://via.placeholder.com/300x200/8B4789/FFFFFF?text=Blog" alt="Blog Post">
+                        </div>
+                        <div class="blog-content">
+                            <h3>Festival Special Collections</h3>
+                            <p class="blog-meta">Published on April 20, 2026</p>
+                            <p>Explore our exclusive festival gift collections featuring traditional sweets, decorative items, and cultural presents...</p>
+                            <div class="blog-excerpt">Find the perfect gifts for Diwali, Christmas, and other celebrations...</div>
+                            <div class="blog-meta">
+                                <span class="blog-author">Admin</span>
+                                <span class="blog-date">April 20, 2026</span>
+                            </div>
+                            <div class="action-buttons">
+                                <button class="btn btn-sm btn-info">Edit</button>
+                                <button class="btn btn-sm btn-danger">Delete</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="blog-card">
+                        <div class="blog-image">
+                            <img src="https://via.placeholder.com/300x200/8B4789/FFFFFF?text=Blog" alt="Blog Post">
+                        </div>
+                        <div class="blog-content">
+                            <h3>Gift Wrapping Guide</h3>
+                            <p class="blog-meta">Published on April 20, 2026</p>
+                            <p>Learn the art of professional gift wrapping with our comprehensive guide...</p>
+                            <div class="blog-excerpt">Discover tips and techniques for making every gift special...</div>
+                            <div class="blog-meta">
+                                <span class="blog-author">Admin</span>
+                                <span class="blog-date">April 20, 2026</span>
+                            </div>
+                            <div class="action-buttons">
+                                <button class="btn btn-sm btn-info">Edit</button>
+                                <button class="btn btn-sm btn-danger">Delete</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pagination -->
+                <div class="pagination" id="blogPagination"></div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Blog Post Modal -->
+    <div id="blogModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="blogModalTitle">New Blog Post</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="blogForm">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="blogTitle">Title *</label>
+                            <input type="text" id="blogTitle" name="title" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="blogCategory">Category *</label>
+                            <select id="blogCategory" name="category" required>
+                                <option value="">Select Category</option>
+                                <option value="Gift Ideas">Gift Ideas</option>
+                                <option value="Festival Special">Festival Special</option>
+                                <option value="Corporate Gifts">Corporate Gifts</option>
+                                <option value="Personal Occasions">Personal Occasions</option>
+                                <option value="General">General</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="blogExcerpt">Excerpt</label>
+                            <textarea id="blogExcerpt" name="excerpt" rows="3" placeholder="Brief description of the blog post"></textarea>
+                        </div>
+                        <div class="form-group full-width">
+                            <label for="blogContent">Content *</label>
+                            <textarea id="blogContent" name="content" rows="6" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="blogStatus">Status</label>
+                            <select id="blogStatus" name="status">
+                                <option value="Published">Published</option>
+                                <option value="Draft">Draft</option>
+                                <option value="Archived">Archived</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">Publish Post</button>
+                        <button type="button" class="btn btn-secondary modal-cancel">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/common.js"></script>
+    <script src="js/blog.js"></script>
+</body>
+</html>

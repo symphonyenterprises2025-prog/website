@@ -1,0 +1,19 @@
+# GitHub Pages Configuration
+# This file tells GitHub Pages to skip Jekyll processing for static HTML sites
+
+exclude:
+  - node_modules/
+  - backend/
+  - .git/
+  - .github/
+  - test-*.js
+  - *.md
+  - mongodb-windows.zip
+
+# Disable Jekyll processing
+markdown: kramdown
+highlighter: rouge
+
+# Site settings
+title: Symphony Enterprises
+description: Premium Gift Shop in Bhubaneswar

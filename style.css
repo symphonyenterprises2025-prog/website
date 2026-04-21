@@ -117,17 +117,6 @@ body {
   color: #8B4789;
 }
 
-#navbar li a.active::after,
-#navbar li a:hover::after{
-  content: "";
-  width: 30%;
-  height: 2px;
-  background: #8B4789;
-  position: absolute;
-  bottom: -4px;
-  left: 20px;
-}
-
 #mobile {
   display: none;
   align-items: center;
@@ -817,16 +806,6 @@ footer h4 {
   position: relative;
 }
 
-footer h4::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: -8px;
-  width: 50px;
-  height: 2px;
-  background: #8B4789;
-}
-
 footer p {
   font-size: 13px;
   margin: 0 0 8px 0;
@@ -1057,22 +1036,8 @@ footer .follow a:hover {
   transition: 0.2s;
 }
 
-#blog .blog-details a::after {
-  content: "";
-  width: 50px;
-  height: 1px;
-  background-color: #000;
-  position: absolute;
-  top: 4px;
-  right: -60px;
-}
-
 #blog .blog-details a:hover {
   color: #8B4789;
-}
-
-#blog .blog-details a:hover::after {
-  background-color: #8B4789;
 }
 
 #blog .blog-box h1 {

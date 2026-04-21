@@ -497,8 +497,12 @@ body {
     font-size: 24px;
     font-weight: 700;
     color: #8B4789;
-    text-decoration: none;
-    font-family: "Spartan", sans-serif;
+}
+
+.logo-img {
+    height: 40px;
+    width: auto;
+    object-fit: contain;
 }
 
 #product1 .pro:hover {

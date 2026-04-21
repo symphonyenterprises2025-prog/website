@@ -28,8 +28,5 @@ test-*.js
 *.zip
 mongodb-windows.zip
 
-# Screenshots (large images)
-img/Screenshot/
-
 # Build artifacts
 backend/data.json

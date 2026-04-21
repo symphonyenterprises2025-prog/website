@@ -28,5 +28,8 @@ test-*.js
 *.zip
 mongodb-windows.zip
 
+# Screenshots (large images) - except unnamed.webp which is used in hero
+img/Screenshot/*
+
 # Build artifacts
 backend/data.json
